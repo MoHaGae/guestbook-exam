@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        html, body{
+            height: 100%;
+        }
+
+        body{
+            color:#333;
+        }
+
+        h1,h3,body{
+            margin:0;
+        }
+
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        #guestbook{
+            width: 100vw;
+            min-height: 100%;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 32px;
+        }
+
+        #guestbook > main {
+            position: relative;
+            display:flex;
+            align-items: flex-start;
+        }
+
+        .guestbook__title{
+            font-size:32px;
+            margin-bottom: 20px;
+        }
+
+        .guestbook__list{
+            margin-right: 38px;
+        }
+
+        .guestbook__content{
+            letter-spacing: -0.2px;
+        }
+
+        .guestbook__article{
+            border: 1px solid #dbdbdb;
+            padding: 20px 36.5px;
+            width: 480px;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+            margin-bottom: 42px;
+        }
+        
+        .guestbook__article:hover{
+            transform: scale(1.02);
+        }
+
+        .guestbook__author{
+            font-weight:bold;
+            font-size:14px;
+        }
+
+        .guestbook__time{
+            font-size: 12px;
+            color:gray;
+        }
+
+        .guestbook__form{
+            position: sticky;
+            top:80px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border: 1px solid #dbdbdb;
+            padding: 20px 36.5px;
+            width: 480px;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+        }
+
+        .guestbook__form > input{
+            border-radius: 8px;
+            border: 1px solid #dbdbdb;
+            padding: 10px 17.5px;
+            outline: none;
+            margin-bottom: 28px;
+            font-size: 16px;
+        }
+
+        .guestbook__form > textarea{
+            font-family: inherit;
+            font-size: inherit;
+            box-sizing: content-box;
+            border-radius: 8px;
+            border: 1px solid #dbdbdb;
+            padding: 10px 10px;
+            outline: none;
+            width: 380px;
+            height: 100px;
+            resize: none;
+            margin-bottom: 24px;
+        }
+
+        .guestbook__form > button{
+            border: 1px solid #dbdbdb;
+            outline: none;
+            padding:7px 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            
+        }
+    </style>
+    <title>📑 방명록</title>
+</head>
+<body>
+    <section id="guestbook">
+        <header>
+            <h1 class="guestbook__title">📑 방명록</h1>
+        </header>
+        <main>
+            <ul class="guestbook__list">
+                
+            </ul>
+            <form class="guestbook__form">
+                <h3 class="guestbook__title">📕방명록 작성</h3>
+                <input type="text" name="name" placeholder="작성자이름"/>
+                <textarea name="content" placeholder="내용을 입력해주세요."></textarea>
+                <button>등록</button>
+            </form>
+        </main>
+    </section>
+    <!-- ✅ template태그 : http://www.tcpschool.com/html-tags/template -->
+    <template id="guestbook-template">
+        <li>
+            <article class="guestbook__article">
+                <h3 class="guestbook__author">{{name}}</h3>
+                <p class="guestbook__content">
+                    {{content}}
+                </p>
+                <time class="guestbook__time">{{createAt}}</time>
+            </article>
+        </li>
+    </template>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
